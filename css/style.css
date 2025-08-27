@@ -1,0 +1,364 @@
+/* Import font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* Global reset and font */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Page background */
+body,
+html {
+    height: 100vh;
+    min-height: 100vh;
+    width: 100vw;
+    background-image: url('../img/weather.gif');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* App container */
+.app {
+    width: 360px;
+    max-width: 96vw;
+    padding: 2.5rem 2rem;
+    background: linear-gradient(270deg, #0f2027, #203a43, #2c5364);
+    background-size: 600% 600%;
+    border-radius: 25px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    transition: transform 0.3s ease;
+    animation: gradientAnimation 5s ease infinite;
+    position: relative;
+    z-index: 2;
+    border: none;
+}
+
+/* Animated background gradient */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.app:hover {
+    transform: translateY(-5px);
+}
+
+/* Titles */
+.app h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.app h2 {
+    background-image: linear-gradient(135deg, #fff9c4, #a0e7e5);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transform: translateY(50px);
+    animation: slideUp 1s forwards;
+    animation-delay: 0.3s;
+}
+
+/* Slide up animation for subtitle */
+@keyframes slideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Search bar */
+.search {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto 2rem;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    padding: 0.2rem;
+    gap: 5px;
+}
+
+/* Search input */
+.search input {
+    flex: 1;
+    padding: 0.6rem 1rem;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    background: transparent;
+    color: #fff;
+    border-radius: 50px;
+}
+
+/* Search button (magnifier) - FULL FIX */
+.search button {
+    flex-shrink: 0;
+    width: 45px;
+    height: 45px;
+    font-size: 1.4rem;
+    border-radius: 50%;
+    background: #fff;
+    color: #556de5;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+    border: none;
+    box-shadow: none;
+    outline: none;
+    padding: 0;
+    /* Remove unwanted border/shadow */
+    box-sizing: border-box;
+}
+
+.search button:hover,
+.search button:active,
+.search button:focus {
+    background: #556de5;
+    color: #fff;
+    box-shadow: none;
+    outline: none;
+    border: none;
+    transform: scale(1.08);
+}
+
+/* Remove any default browser outline on click */
+.search button::-moz-focus-inner {
+    border: 0;
+}
+
+.search button:focus-visible {
+    outline: none;
+}
+
+/* City input text color */
+#CityInput {
+    color: #fff;
+}
+
+/* City input placeholder color */
+#CityInput::placeholder {
+    color: #fff;
+    opacity: 0.7;
+}
+
+/* Weather section */
+.weather {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+/* Weather images (default & icon) */
+.weather img,
+#default-img,
+#icon {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 1rem;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    display: block;
+    border-radius: 25px;
+}
+
+/* Weather icon hidden by default */
+#icon {
+    display: none;
+}
+
+/* Temperature display */
+.temp {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Weather description */
+.desc {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    text-transform: capitalize;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Details section */
+.details {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.details div h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.2rem;
+}
+
+.details div p {
+    font-size: 0.9rem;
+    color: #e0e0e0;
+}
+
+/* Responsive for mobile screens */
+@media (max-width: 480px) {
+
+    body,
+    html {
+        padding: 0 !important;
+        min-height: 100vh !important;
+        height: 100dvh !important;
+        overflow: hidden !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        background-image: url('../img/weather.gif') !important;
+        background-position: center !important;
+        background-size: cover !important;
+        background-repeat: no-repeat !important;
+    }
+
+    /* App container on mobile */
+    .app {
+        width: 94vw !important;
+        max-width: 380px !important;
+        min-width: 0 !important;
+        padding: 1rem 0.2rem !important;
+        border-radius: 12px !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12) !important;
+        margin: 0 auto !important;
+        background: linear-gradient(270deg, #0f2027, #203a43, #2c5364) !important;
+        border: none !important;
+    }
+
+    /* Search bar on mobile - FIXED */
+    .search {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        padding: 0.1rem !important;
+        gap: 2px !important;
+        margin-bottom: 1rem !important;
+        box-sizing: border-box !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: stretch !important;
+    }
+
+    .search input {
+        font-size: 0.95rem !important;
+        padding: 0.5rem 0.7rem !important;
+        min-width: 0 !important;
+        flex: 1 1 0 !important;
+    }
+
+    .search button {
+        width: 38px !important;
+        height: 38px !important;
+        font-size: 1.2rem !important;
+        border-radius: 50% !important;
+        background: #fff !important;
+        color: #556de5 !important;
+        box-shadow: none !important;
+        outline: none !important;
+        border: none !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+        flex-shrink: 0 !important;
+        margin-left: 2px !important;
+    }
+
+    .search button:hover,
+    .search button:active,
+    .search button:focus {
+        background: #556de5 !important;
+        color: #fff !important;
+        box-shadow: none !important;
+        outline: none !important;
+        border: none !important;
+        transform: scale(1.08) !important;
+    }
+
+    .search button::-moz-focus-inner {
+        border: 0 !important;
+    }
+
+    .search button:focus-visible {
+        outline: none !important;
+    }
+
+    /* Weather images on mobile */
+    .weather img,
+    #default-img,
+    #icon {
+        width: 60px !important;
+        height: 60px !important;
+        margin-bottom: 0.4rem !important;
+        background: none !important;
+        border: none !important;
+        box-shadow: none !important;
+        border-radius: 12px !important;
+    }
+
+    /* Temperature on mobile */
+    .temp {
+        font-size: 1.2rem !important;
+        margin-bottom: 0.2rem !important;
+    }
+
+    /* Description on mobile */
+    .desc {
+        font-size: 1rem !important;
+        margin-bottom: 0.7rem !important;
+    }
+
+    /* Details section on mobile */
+    .details {
+        flex-direction: column !important;
+        gap: 0.4rem !important;
+        padding: 0.4rem !important;
+        width: 100% !important;
+        border-radius: 8px !important;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.10) !important;
+    }
+}
