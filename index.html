@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Now: Live Weather Updates</title>
+    <!-- custom css link-->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- favicon -->
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Weather App container -->
+    <div class="app">
+        <h1>Weather App</h1>
+        <h2>Live Weather Updates</h2>
+        <!-- Search bar -->
+        <div class="search">
+            <input type="text" id="CityInput" placeholder="Enter City...">
+            <button onclick="getWeather()">🔍</button>
+        </div>
+        <!-- Weather info -->
+        <div class="weather">
+            <img id="default-img" src="img/winter.gif" alt="Default" />
+            <img id="icon" src="" alt="" style="display:none;">
+            <div class="temp" id="temp">--°C</div>
+            <div class="desc" id="desc">---</div>
+            <div class="details">
+                <div>
+                    <h3 id="humidity">--%</h3>
+                    <p>Humidity</p>
+                </div>
+                <div>
+                    <h3 id="wind">-- km/h</h3>
+                    <p>Wind</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- custom js link -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>
