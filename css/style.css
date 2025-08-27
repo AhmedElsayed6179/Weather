@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../img/weather.gif');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
+}
+
+.app {
+    width: 360px;
+    padding: 2.5rem 2rem;
+    background-color: hsla(0, 12%, 63%, 1);
+    backdrop-filter: blur(12px);
+    border-radius: 25px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    transition: transform 0.3s ease;
+    animation: gradientAnimation 5s ease infinite;
+    background: linear-gradient(270deg, #0f2027, #203a43, #2c5364);
+    background-size: 600% 600%;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.app:hover {
+    transform: translateY(-5px);
+}
+
+.app h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto 2rem;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    padding: 0.2rem;
+    gap: 5px;
+}
+
+.search input {
+    flex: 1;
+    padding: 0.6rem 1rem;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    background: transparent;
+    color: #fff;
+    border-radius: 50px;
+}
+
+.search button {
+    flex-shrink: 0;
+    width: 45px;
+    height: 45px;
+    font-size: 1.4rem;
+    border-radius: 50%;
+    border: none;
+    background: #ffffff;
+    color: #556de5;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.search button:hover {
+    background: #556de5;
+    color: #fff;
+    transform: scale(1.15);
+}
+
+
+.weather {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.weather img {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 1rem;
+}
+
+#default-img {
+    display: block;
+    border-radius: 25px;
+}
+
+#icon {
+    display: none;
+}
+
+.temp {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.desc {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    text-transform: capitalize;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.details {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.details div h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.2rem;
+}
+
+.details div p {
+    font-size: 0.9rem;
+    color: #e0e0e0;
+}
+
+#CityInput {
+    color: #fff;
+}
+
+#CityInput::placeholder {
+    color: #fff;
+    opacity: 0.7;
+}
+
+@media (max-width: 400px) {
+    .app {
+        width: 95%;
+        padding: 1.5rem;
+    }
+
+    .search {
+        max-width: 95%;
+    }
+
+    .search input {
+        font-size: 0.95rem;
+        padding: 0.5rem 0.8rem;
+        border-radius: 50px;
+    }
+
+    .search button {
+        width: 40px;
+        height: 40px;
+        font-size: 1.3rem;
+    }
+
+    .weather img {
+        width: 90px;
+        height: 90px;
+        margin-bottom: 0.5rem;
+    }
+
+    .temp {
+        font-size: 2rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .desc {
+        font-size: 1rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .details {
+        flex-direction: column;
+        gap: 8px;
+        padding: 0.8rem;
+    }
+
+    .details div h3 {
+        font-size: 1rem;
+    }
+
+    .details div p {
+        font-size: 0.85rem;
+    }
+}
